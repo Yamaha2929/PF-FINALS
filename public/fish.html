@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="fish.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>PALENGKEROS</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><h1>PALENGKEROS</h1></div>
+      <ul class="menu">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="">ABOUT US</a></li>
+        <li><a href="">CONTACT US</a></li>
+        <li>
+          <a href="#" onclick="openCart()"
+            >Cart <i class="fas fa-shopping-cart"></i
+          ></a>
+        </li>
+      </ul>
+      <div class="menu-btn">
+        <i class="fa fa-bars"></i>
+      </div>
+    </nav>
+
+    <h1 class="recommend">Fish Products</h1>
+
+    <section class="sec">
+      <div class="products">
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="7.jpg" alt="" /></div>
+          <div class="desc">Tinapa</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="8.jpg" alt="" /></div>
+          <div class="desc">Tilapia</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="9.jpeg" alt="" /></div>
+          <div class="desc">Bangus</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="10.webp" alt="" /></div>
+          <div class="desc">Lapu-Lapu</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="gg.jpg" alt="" /></div>
+          <div class="desc">Galunggong</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="hito.jpg" alt="" /></div>
+          <div class="desc">Hito</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="bulig2.jpg" alt="" /></div>
+          <div class="desc">Bulig</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- end -->
+
+        <!-- start -->
+        <div class="card">
+          <div class="img"><img src="salmon.jpg" alt="" /></div>
+          <div class="desc">Salmon</div>
+          <div class="box">
+            <div class="price">100/kilo</div>
+            <button class="btn" onclick="addToCart(this.parentNode.parentNode)">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Copyrights at <a href="">PALENGKEROS</a></p>
+    </footer>
+
+    <script>
+      $(".menu-btn").click(function () {
+        $(".navbar .menu").toggleClass("active");
+        $(".menu-btn i").toggleClass("active");
+      });
+
+      let cart = [];
+
+      function addToCart(product) {
+        const name = product.querySelector(".desc").textContent;
+        const price = parseFloat(product.querySelector(".price").textContent);
+        cart.push({ name, price });
+        updateButtonState(product.querySelector(".btn"));
+      }
+
+      function updateButtonState(button) {
+        button.disabled = true; // Disable the button after adding to cart
+        button.textContent = "Added to Cart";
+      }
+    </script>
+
+    <script>
+      function openCart() {
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+
+        let cartContent = "Cart Items:\n";
+        cart.forEach((item) => {
+          cartContent += `${item.name} - $${item.price.toFixed(2)}\n`;
+        });
+
+        alert(cartContent);
+      }
+    </script>
+  </body>
+</html>

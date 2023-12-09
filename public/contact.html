@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>PALENGKEROS</title>
+    <style>
+        .contact-boxes {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-box {
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            flex: 0 1 30%; 
+            margin: 10px;
+        }
+
+        .contact-box:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+
+        .social-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><h1>PALENGKEROS</h1></div>   
+        <ul class="menu">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="">ABOUT US</a></li>
+            <li><a href="">CONTACT US</a></li>
+            <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+        <div class="menu-btn">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
+    <section id="contact" class="contact-section">
+        <h1>Contact Us</h1>
+        <div class="contact-boxes">
+            <!-- Card for 1 -->
+            <div class="contact-box">
+                <div class="contact-card">
+                    <i class="fab fa-facebook social-icon"></i>
+                    <h2>Facebook</h2>
+                    <p>palengkeros.com</p>
+                </div>
+            </div>
+            
+            <!-- Card for 2 -->
+            <div class="contact-box">
+                <div class="contact-card">
+                    <i class="fab fa-instagram social-icon"></i>
+                    <h2>Instagram</h2>
+                    <p>@palengkeros</p>
+                </div>
+            </div>
+
+            <!-- Card for 3 -->
+            <div class="contact-box">
+                <div class="contact-card">
+                    <i class="fab fa-twitter social-icon"></i>
+                    <h2>Twitter</h2>
+                    <p>paleng_keros</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyrights at <a href="">PALENGKEROS</a></p>
+    </footer>
+    
+    <script>
+        $(".menu-btn").click(function(){
+          $(".navbar .menu").toggleClass("active");
+          $(".menu-btn i").toggleClass("active"); 
+        });
+    </script>
+</body>
+</html>
